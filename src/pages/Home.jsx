@@ -2,9 +2,10 @@ import { useEffect } from "react";
 import useStore from "../context/useStore";
 import ProductCard from "../components/ProductCard";
 import "../styles/home.css";
+import { Pagination } from 'antd';
 
 const Home = () => {
-  const { products, user, deleteProduct, editProduct, notifications, fetchProducts } =
+  const { products, user, deleteProduct, editProduct, notifications, fetchProducts, currentPage, setCurrentPage } =
     useStore();
 
   useEffect(() => {
@@ -40,6 +41,9 @@ const Home = () => {
             {notif.message}
           </div>
         ))}
+      </div>
+      <div className="pagination">
+        <Pagination defaultCurrent={1} total={50} onChange={(page) => fetchProducts(page, true)} />
       </div>
     </div>
   );

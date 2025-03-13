@@ -1,27 +1,32 @@
-import { useEffect } from "react";
-import useStore from "../context/useStore";
+import { useQuery } from "@tanstack/react-query";
 
-const ProductList = () => {
-  const { products, fetchProducts } = useStore();
+const fetchProducts = async () => {
+  const res = await fetch("https://dummyjson.com/products?limit=30");
+  if (!res.ok) {
+    throw new Error("Xatolik yuz berdi");
+  }
+  return res.json();
+};
 
-  useEffect(() => {
-    fetchProducts(); 
-  }, []);
+const ProductsPage = () => {
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["products"],
+    queryFn: fetchProducts,
+  });
+
+  if (isLoading) return <p>⏳ Yuklanmoqda...</p>;
+  if (error) return <p>❌ Xatolik yuz berdi: {error.message}</p>;
 
   return (
     <div>
-      <h2>Mahsulotlar</h2>
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            <img src={product.thumbnail} alt={product.title} />
-            {product.category}
-            {product.title} - {product.price} so‘m
-          </li>
-        ))}
-      </ul>
+      {data.products.map((product) => (
+        <div key={product.id}>
+          <h3>{product.title}</h3>
+          <p>{product.price}$</p>
+        </div>
+      ))}
     </div>
   );
 };
 
-export default ProductList;
+export default ProductsPage;

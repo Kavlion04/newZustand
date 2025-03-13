@@ -3,9 +3,9 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Favorites from "./pages/Favorites";
 import Profile from "./pages/Profile";
-import AddProduct from "./pages/AddProduct"; // Yangi sahifani import qildik
+import AddProduct from "./pages/AddProduct"; 
 import Login from "./components/Login";
-import PrivateRoute from "./routes/PrivateRoute"; // Login bo‘lganlar uchun sahifa
+import PrivateRoute from "./routes/PrivateRoute";
 import Header from "./components/Header";
 
 const App = () => {
@@ -18,8 +18,6 @@ const App = () => {
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<Profile />} />
-
-        {/* Faqat login qilgan foydalanuvchilar uchun mahsulot qo‘shish sahifasi */}
         <Route
           path="/add-product"
           element={
