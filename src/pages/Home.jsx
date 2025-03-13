@@ -11,7 +11,7 @@ const Home = () => {
     fetchProducts();
   }, []);
 
-  console.log("Home page yuklandi. Products:", products); // 🔹 Konsolga mahsulotlar chiqamiz
+  console.log("Home page yuklandi. Products:", products); 
 
   return (
     <div>

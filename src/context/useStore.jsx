@@ -9,7 +9,6 @@ const useStore = create((set) => ({
   user: JSON.parse(localStorage.getItem("user")) || null,
   token: localStorage.getItem("token") || null,
 
-  // 🔹 Login funksiyasi (foydalanuvchini tizimga kiritish)
   loginUser: async (username, password) => {
     try {
       const response = await fetch("https://dummyjson.com/auth/login", {
@@ -44,7 +43,7 @@ const useStore = create((set) => ({
     }
   },
 
-  // 🔹 Token orqali foydalanuvchini olish
+  
   toggleFavorite: (product) => {
     set((state) => {
       const isFavorite = state.favorites.some((item) => item.id === product.id);
@@ -142,8 +141,6 @@ const useStore = create((set) => ({
       console.error("Auth xatosi:", error.message);
     }
   },
-
-  // 🔹 Logout funksiyasi
   logoutUser: () => {
     set({ user: null, token: null });
     localStorage.removeItem("user");
@@ -157,7 +154,7 @@ const useStore = create((set) => ({
     }));
   },
 
-  // 🔹 Barcha mahsulotlar, savatcha va boshqa funksiyalar
+  
   fetchProducts: async () => {
     try {
       const response = await fetch("https://dummyjson.com/products?limit=30");

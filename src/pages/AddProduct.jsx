@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useStore from "../context/useStore";
+import "../styles/AddProduct.css";
 
 const AddProduct = () => {
   const { addProduct } = useStore();
@@ -17,17 +18,17 @@ const AddProduct = () => {
     }
 
     const newProduct = {
-      id: Date.now(), // Unikal ID yaratish
+      id: Date.now(),
       name,
       price: parseFloat(price),
     };
 
-    addProduct(newProduct); // Store'ga qo‘shish
-    navigate("/"); // Home sahifasiga yo‘naltirish
+    addProduct(newProduct); 
+    navigate("/"); 
   };
 
   return (
-    <div>
+    <div className="add-product">
       <h2>Yangi mahsulot qo‘shish</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -45,7 +46,7 @@ const AddProduct = () => {
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
-        <button type="submit">Qo‘shish</button>
+        <button className="add-btn" type="submit">Qo‘shish</button>
       </form>
     </div>
   );

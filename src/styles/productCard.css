@@ -15,4 +15,14 @@
     cursor: pointer;
     border-radius: 5px;
 }
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.edit-form input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
 

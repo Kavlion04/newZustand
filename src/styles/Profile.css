@@ -4,8 +4,8 @@
     border: 1px solid #ddd;
     width: 500px;
     position: relative;
-    left: 600px;
-    top: 150px;
+    left: 550px;
+    top: 100px;
     display: flex;
     flex-direction: column;
     gap: 10px;

@@ -8,7 +8,7 @@ const Profile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getCurrentUser(); // Foydalanuvchi ma’lumotlarini olish
+    getCurrentUser(); 
   }, []);
 
   if (!user) {

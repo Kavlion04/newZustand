@@ -20,7 +20,7 @@ const ProductCard = ({ product, isLoggedIn }) => {
   return (
     <div className="product-card">
       {isEditing ? (
-        <div>
+        <div className="edit-form"> 
           <input
             type="text"
             value={newName}
@@ -31,7 +31,7 @@ const ProductCard = ({ product, isLoggedIn }) => {
             value={newPrice}
             onChange={(e) => setNewPrice(e.target.value)}
           />
-          <button onClick={handleEdit}>✅ Saqlash</button>
+          <button onClick={handleEdit}> Saqlash</button>
         </div>
       ) : (
         <div>
