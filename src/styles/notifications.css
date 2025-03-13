@@ -1,0 +1,24 @@
+.notification-container {
+    position: fixed;
+    top: 0px;
+    right: 10px;
+    width: 250px;
+    z-index: 1000;
+}
+
+.notification {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.success {
+    background: green;
+}
+
+.warning {
+    background: orange;
+}
